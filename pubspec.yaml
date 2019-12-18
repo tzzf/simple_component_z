@@ -1,8 +1,8 @@
 name: simple_component_z
-description: A new Flutter package project.
-version: 0.0.1
-author:
-homepage:
+description: Flutter plugin component. Include singlerow selecto, button. just accelerate development efficiency.
+version: 0.0.2
+author: tzzf <tzzf0921@gmail.com>
+homepage: https://github.com/tzzf/simple_component_z
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
