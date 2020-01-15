@@ -1,6 +1,6 @@
 # simple_component_z
 
-A new Flutter package project.
+A new Flutter component package project.
 
 ## Getting Started
 
@@ -38,56 +38,36 @@ final Color splashColor; // 点击的水波纹颜色
 final Function onLongTap;  //长按回调
 
 
-## 单列picker Example
+## picker Example
 ```dart
 import 'package:simple_component_z/simple_picker_z.dart';
 ```
 
 ```dart
-class ShowList {
-  dynamic value;
-  String name;
+List<List> _cityList = [['杭州', '北京', '上海', '大连']];
 
-  ShowList.fromJson(Map json){
-    value = json['value'];
-    name = json['name'];
-  }
+ List _cityVal;
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['value'] = this.value;
-    data['name'] = this.name;
-    return data;
-  }
-
-}
-final List<ShowList> _sexList = []..addAll([
-    ShowList.fromJson({'name': '男', 'value': 1}),
-    ShowList.fromJson({'name': '女', 'value': 0})
-]);
-int _sexVal;
-
-void handleChangeSex(val) {
-    setState(() {
-      this._sexVal = val;
-    });
+void handleConfirm(List selectedLabel, List<int> selecteds) {
+  setState(() {
+    this._cityVal = selectedLabel;
+  });
 }
 
-
-ZSimplePicker(
-    selectList: _sexList.map((data) {
-        return Text(data.name ?? '');
-    }).toList(),
-    selectValue: _sexVal,
-    onChange: handleChangeSex,
-    child: Text(_sexVal != null ? _sexList[_sexVal].name : '打开性别选择器'),
+new FlatButton(
+  onPressed: () {
+    new ZSimplePicker(
+      selectItem: this._cityList,
+      onConfirmFunc: handleConfirm,
+    ).showModal(context);
+  },
+  child: new Text(this._cityVal != null && this._cityVal.length > 0 ?
+    this._cityVal.join('') : '打开城市选择器' ),
+  color: Colors.blue,
 ),
 ```
 
-final onChange; // 但是ok按钮的回调
-final Widget child; // 点击这个组件显示picker
-final int selectValue; // 默认选中的索引
-final String okText; // ok按钮的文案
-final String cancelText; // 取消按钮的文案
-final List<Widget> selectList; // 可以选择的列表
+final List<List> selectItem; // 选择的内容
+final PickerCHangeCallback onChangeFunc; // 改变某列的回调函数
+final PickerConfirmCallback onConfirmFunc; // 点击确定的回调函数
 
