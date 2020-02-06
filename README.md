@@ -71,3 +71,17 @@ final List<List> selectItem; // 选择的内容
 final PickerCHangeCallback onChangeFunc; // 改变某列的回调函数
 final PickerConfirmCallback onConfirmFunc; // 点击确定的回调函数
 
+## upload Example
+```dart
+import 'package:simple_component_z/simple_upload_z.dart';
+
+new ZSimpleUpload(
+  takeWay: TakeWay.all,
+  onSuccessFunc: (TakeWay type, File file) {
+  },
+).showModal(context);
+```
+
+final PickerConfirmCallback onSuccessFunc; // 上传内容选择成功回调 必填
+final TextStyle labelStyle; // 上传文案样式
+final TakeWay takeWay; // 上传图片 视频

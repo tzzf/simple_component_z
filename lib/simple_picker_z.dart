@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 typedef PickerConfirmCallback = void Function(List selectedLabel, List<int> selectedVal);
-typedef PickerCHangeCallback = void Function(List selectedLabel, List<int> selectedVal, int selectItemIndex);
+typedef PickerChangeCallback = void Function(List selectedLabel, List<int> selectedVal, int selectItemIndex);
 
 
 class ZSimplePicker {
   final List<List> selectItem;
-  final PickerCHangeCallback onChangeFunc;
+  final PickerChangeCallback onChangeFunc;
   final PickerConfirmCallback onConfirmFunc;
 
   ZSimplePicker({

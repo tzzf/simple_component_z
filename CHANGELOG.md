@@ -1,3 +1,6 @@
+## [0.0.4] - 20.02.6
+
+* packaging upload image and video 
 ## [0.0.3] - 20.01.15
 
 * Picker Revision, Supports multiple columns

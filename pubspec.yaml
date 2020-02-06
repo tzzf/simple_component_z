@@ -1,6 +1,6 @@
 name: simple_component_z
 description: Flutter plugin component. Include singlerow selecto, button. just accelerate development efficiency.
-version: 0.0.3
+version: 0.0.4
 author: tzzf <tzzf0921@gmail.com>
 homepage: https://github.com/tzzf/simple_component_z
 
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  image_picker: ^0.6.0
 
 dev_dependencies:
   flutter_test:
