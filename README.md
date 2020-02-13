@@ -17,30 +17,31 @@ samples, guidance on mobile development, and a full API reference.
 ## 可点击按钮 Example
 
 ```dart
-import 'package:simple_component_z/simple_button_z.dart';
+import 'package:simple_component_z/simple_button.dart';
 ```
 
 ```dart
 
-ZSimpleButton(
+SimpleButton(
     onTap: () => {print('点击')},
     child: Text('ZSimpleButton--》'),
 ),
 ```
 
-可传参数
-final double radius; //圆角
-final Function onTap; //点击回调
-final Widget child; // 内部的控件
-final double elevation; //阴影"高度"
-final Color backgroundColor; //背景颜色
-final Color splashColor; // 点击的水波纹颜色
-final Function onLongTap;  //长按回调
+| 参数            | 类型             |           描述     |
+| :------------ |:---------------:| :-----|
+| radius | double  | 圆角 |
+| onTap | Function | 分页指示器与容器边框的距离 |
+| child | Widget | 内部的控件 |
+| elevation | double | 阴影"高度" |
+| backgroundColor | Color | 背景颜色 |
+| splashColor | Color | 点击的水波纹颜色 |
+| onLongTap | Function | 长按回调 |
 
 
 ## picker Example
 ```dart
-import 'package:simple_component_z/simple_picker_z.dart';
+import 'package:simple_component_z/simple_picker.dart';
 ```
 
 ```dart
@@ -56,7 +57,7 @@ void handleConfirm(List selectedLabel, List<int> selecteds) {
 
 new FlatButton(
   onPressed: () {
-    new ZSimplePicker(
+    new SimplePicker(
       selectItem: this._cityList,
       onConfirmFunc: handleConfirm,
     ).showModal(context);
@@ -66,22 +67,72 @@ new FlatButton(
   color: Colors.blue,
 ),
 ```
-
-final List<List> selectItem; // 选择的内容
-final PickerCHangeCallback onChangeFunc; // 改变某列的回调函数
-final PickerConfirmCallback onConfirmFunc; // 点击确定的回调函数
+| 参数            | 类型             |           描述     |
+| :------------ |:---------------:| :-----|
+| selectItem | List  | 选择的内容 |
+| onChangeFunc | PickerChangeCallback | 改变某列的回调函数 |
+| onConfirmFunc | PickerConfirmCallback | 点击确定的回调函数 |
 
 ## upload Example
 ```dart
-import 'package:simple_component_z/simple_upload_z.dart';
+import 'package:simple_component_z/simple_upload.dart';
 
-new ZSimpleUpload(
+new SimpleUpload(
   takeWay: TakeWay.all,
   onSuccessFunc: (TakeWay type, File file) {
   },
 ).showModal(context);
 ```
 
-final PickerConfirmCallback onSuccessFunc; // 上传内容选择成功回调 必填
-final TextStyle labelStyle; // 上传文案样式
-final TakeWay takeWay; // 上传图片 视频
+| 参数            | 类型             |           描述     |
+| :------------ |:---------------:| :-----|
+| onSuccessFunc | PickerChangeCallback | 上传内容选择成功回调 必填 |
+| labelStyle | TextStyle | 上传文案样式 |
+| takeWay | TakeWay | 上传图片 视频 |
+
+
+## ExpandText Example
+
+```dart
+import 'package:simple_component_z/expandtext_panel.dart';
+String longText = '超过最大行数三行的多ewqe行文本超过\n最大行数\n三行\n的多行文本超过最大行数三行的多行文本'
+      '超过最大行数三行的多行文本超过最大行数三行的多行43132文本超过最大行数三行的多行文本超过最大行数三行的多行文本';
+
+ExpandTextPanel(
+  text: longText,
+  maxLines: 3,
+  expandItem: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      Text(
+        '展开',
+        style: TextStyle(
+          fontSize: 24,
+        ),
+      ),
+    ],
+  ),
+  putawayItem: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      Text(
+        '收起',
+        style: TextStyle(
+          fontSize: 24,
+        ),
+      ),
+    ],
+  ),
+  style:
+      TextStyle(fontSize: 26),
+),
+```
+
+| 参数            | 类型             |           描述     |
+| :------------ |:---------------:| :-----|
+| text | String | 文本 |
+| maxLines | int | 显示几行 |
+| style | TextStyle | 文字样式 |
+| isExpand | bool | 一开始是否展开  |
+| expandItem | String/widget | 若是widget直接显示，展开部件  |
+| putawayItem | String/widget | 若是widget直接显示，收起部件  |

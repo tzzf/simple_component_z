@@ -7,12 +7,12 @@ import 'package:image_picker/image_picker.dart';
 
 typedef PickerConfirmCallback = void Function(TakeWay type, File file);
 
-class ZSimpleUpload {
+class SimpleUpload {
   final PickerConfirmCallback onSuccessFunc;
   final TextStyle labelStyle;
   final TakeWay takeWay;
 
-  ZSimpleUpload({
+  SimpleUpload({
     @required this.onSuccessFunc,
     this.takeWay = TakeWay.phpto,
     this.labelStyle = const TextStyle(fontSize: 14),

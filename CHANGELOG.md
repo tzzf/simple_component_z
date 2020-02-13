@@ -1,3 +1,6 @@
+## [0.0.5] - 20.02.13
+
+* expandText panel
 ## [0.0.4] - 20.02.6
 
 * packaging upload image and video 

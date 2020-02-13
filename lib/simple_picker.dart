@@ -7,12 +7,12 @@ typedef PickerConfirmCallback = void Function(List selectedLabel, List<int> sele
 typedef PickerChangeCallback = void Function(List selectedLabel, List<int> selectedVal, int selectItemIndex);
 
 
-class ZSimplePicker {
+class SimplePicker {
   final List<List> selectItem;
   final PickerChangeCallback onChangeFunc;
   final PickerConfirmCallback onConfirmFunc;
 
-  ZSimplePicker({
+  SimplePicker({
     this.selectItem,
     this.onConfirmFunc,
     this.onChangeFunc,

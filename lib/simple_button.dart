@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ZSimpleButton extends StatelessWidget {
+class SimpleButton extends StatelessWidget {
   final double radius; //圆角
   final Function onTap; //点击回调
   final Widget child; // 内部的控件
@@ -9,7 +9,7 @@ class ZSimpleButton extends StatelessWidget {
   final Color splashColor; // 点击的水波纹颜色
   final Function onLongTap;  //长按回调
 
-  const ZSimpleButton({
+  const SimpleButton({
     Key key,
     this.radius = 0.0,
     this.onTap,
