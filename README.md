@@ -136,3 +136,74 @@ ExpandTextPanel(
 | isExpand | bool | 一开始是否展开  |
 | expandItem | String/widget | 若是widget直接显示，展开部件  |
 | putawayItem | String/widget | 若是widget直接显示，收起部件  |
+
+
+
+## AddresPicker Example
+
+```dart
+import 'package:simple_component_z/simple_address.dart';
+_getAllAdress(Map selectMap, Funtion fn) async{
+    var province = await getProvince();
+    var city = await getCity();
+    var region = await getRegion();
+    List provinceList = [];
+    province.data['data'].forEach((f) {
+      provinceList.add({
+        'id': f['id'],
+        'name': f['name'],
+      });
+    });
+    List cityList = [];
+    city.data['data'].forEach((f) {
+      cityList.add({
+        'id': f['id'],
+        'name': f['name'],
+      });
+    });
+    List regioneList = [];
+    region.data['data'].forEach((f) {
+      regioneList.add({
+        'id': f['id'],
+        'name': f['name'],
+      });
+    });
+    fn(provinceList, cityList, regioneList);
+  }
+
+  _getOneAdress(int parentId, int listIndex, Function fn) async {
+    var res = await getAddressApi();
+    List list = [];
+    res.data['data'].forEach((f) {
+      list.add({
+        'id': f['id'],
+        'name': f['name'],
+      });
+    });
+    fn(list);
+  }
+
+
+  chooseAddres() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => new SimpleAddressPicker(
+        initValue: Map selectMap,
+        getAllAdress: _getAllAdress,
+        getOneAdress: _getOneAdress,
+        valueCb: (Map selectMap, String localStr) {
+        },
+      ),
+    );
+  }
+```
+
+| 参数            | 类型             |           描述     |
+| :------------ |:---------------:| :-----|
+| initValue | Map | 选中的省市区 |
+| getAllAdress | Funtion | 获取省市区选中的信息调用 |
+| getOneAdress | Funtion | 选中单个省市区的信息调用 |
+| valueCb | Funtion | 省市区三个都选中的信息回调  |
+
+
+
