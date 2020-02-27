@@ -1,3 +1,6 @@
+## [0.0.6] - 20.02.23
+
+* addressPicker
 ## [0.0.5] - 20.02.13
 
 * expandText panel
