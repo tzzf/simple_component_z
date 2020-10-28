@@ -172,15 +172,37 @@ _getAllAdress(Map selectMap, Funtion fn) async{
   }
 
   _getOneAdress(int parentId, int listIndex, Function fn) async {
-    var res = await getAddressApi();
-    List list = [];
-    res.data['data'].forEach((f) {
-      list.add({
-        'id': f['id'],
-        'name': f['name'],
+    if (listIndex == 0) {
+      var res = await getProvince();
+      List list = [];
+      res.data['data'].forEach((f) {
+        list.add({
+          'id': f['id'],
+          'name': f['name'],
+        });
       });
-    });
-    fn(list);
+      fn(list);
+    } else if (listIndex == 1) {
+      var res = await getCity();
+      List list = [];
+      res.data['data'].forEach((f) {
+        list.add({
+          'id': f['id'],
+          'name': f['name'],
+        });
+      });
+      fn(list);
+    } else {
+      var res = await getRegion();
+      List list = [];
+      res.data['data'].forEach((f) {
+        list.add({
+          'id': f['id'],
+          'name': f['name'],
+        });
+      });
+      fn(list);
+    }
   }
 
 
